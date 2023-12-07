@@ -1,6 +1,8 @@
 let navigationMap = new Map()
 
-function addToNavMap(index, contentTitle, file, navName){
+let animationMap = new Map
+
+function addToNavMap(index, contentTitle, file, navName) {
     navigationMap.set(index, {
         contentTitle: contentTitle,
         file: file,
@@ -13,7 +15,7 @@ const mainPage = "Home"
 let currentPage = ""
 
 addToNavMap("Home", "Welcome to my blog! (ﾉ◕ヮ◕)ﾉ*:･ﾟ✧", "main-content.html", "Home Page")
-addToNavMap("Page 1", "First page?!", "page1.html", "First Page")
+addToNavMap("Page1", "First page?!", "page1.html", "First Page")
 addToNavMap("Form", "Form Page test", "form.html", "Form Page")
 
 //Util
@@ -22,31 +24,35 @@ async function readFileContents(filePath) {
 }
 
 //Content
-function setContentTitle(title){
-    document.getElementById("content-title").innerHTML = title
-}
-
-function setContent(content){
+function setContent(content) {
     document.getElementById("content").innerHTML = content
 }
 
-async function setupMainTitle(){
+//Text animation
+function animatedText(elementId, finalString, ms, caretAnimation) {
+
+    let randomId = Math.floor(Math.random() * 10000)
+
+    animationMap.set(elementId, finalString + randomId)
+
     let caret = "_"
-    let finalTitle = "# The [LincKode]"
     let tempString = ""
 
-    for (let i = 0; i < finalTitle.length; i++) {
+    for (let i = 0; i < finalString.length; i++) {
         setTimeout(() => {
-            tempString += finalTitle[i];
-            document.getElementById("main-title").innerHTML = tempString + caret;
 
-            if (i === finalTitle.length - 1){
+            tempString += finalString[i];
+            if (animationMap.get(elementId) !== finalString + randomId) return
+            document.getElementById(elementId).innerHTML = tempString + caret;
+
+            if (i === finalString.length - 1) {
+
                 setTimeout(() => {
-                    document.getElementById("main-title").innerHTML = "# The [LincKode]<span class=\"caret_animation\">_</span>"
+                    document.getElementById(elementId).innerHTML = finalString + (caretAnimation? '<span class="caret_animation">_</span>': '')
                 }, 100)
-            }
 
-        }, 200 * i);
+            }
+        }, ms * i);
     }
 }
 
@@ -61,7 +67,7 @@ function setupNavigationBar() {
 
         content = content.concat(`
              <div class="nav-link">
-                <a onclick="setPage('` + key + `')"> - ` + (flag? ` * `:``) + value.navName + `</a>
+                <a onclick="setPage('` + key + `')"> - ` + (flag ? ` * ` : ``) + value.navName + `</a>
                 <br>
             </div>
         `)
@@ -79,20 +85,23 @@ async function setPage(page) {
 
     const def = navigationMap.get(page);
 
-    setContentTitle(def.contentTitle)
+    await animatedText("content-title", def.contentTitle, 50)
+
     setContent(await readFileContents("content/" + def.file))
-
-
 }
 
 //On page load
 window.onload = async function () {
-    await setupMainTitle()
-    await setPage(mainPage)
-    setupNavigationBar()
+
+    //Load theme
     loadSwitch()
+
+    //Main title
+    animatedText("main-title", "# The [LincKode]", 200, true)
+
+    //Setup initial page
+    await setPage(mainPage)
+
+    //setup navbar
+    setupNavigationBar()
 };
-
-
-
-

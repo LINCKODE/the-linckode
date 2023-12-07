@@ -20,6 +20,10 @@
     }
 }
 
+.caret_animation {
+    animation: pulse 1.5s infinite;
+}
+
 .main-content{
     overflow-y: auto;
     overflow-x: hidden;
@@ -27,10 +31,6 @@
 
 .accent {
     color: var(--accent);
-}
-
-.caret_animation {
-    animation: pulse 1.5s infinite;
 }
 
 .header-content-container {
