@@ -1,0 +1,50 @@
+.nav-link {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+
+    50%{
+        opacity: 1;
+    }
+    51%{
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+.main-content{
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.accent {
+    color: var(--accent);
+}
+
+.caret_animation {
+    animation: pulse 1.5s infinite;
+}
+
+.header-content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.theme-button {
+    border: none;
+    background: transparent;
+    font-size: 16pt;
+    user-select: none;
+}
+.theme-button:hover{
+    cursor: pointer;
+}

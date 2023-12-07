@@ -1,0 +1,156 @@
+<h2 style="text-align: center">This is a simple form</h2>
+
+<style>
+    form {
+        /*width: 70%;*/
+        display: grid;
+        grid-template-columns: auto auto;
+        padding-bottom: 50px;
+
+    }
+
+    @media only screen and (max-width: 1000px) {
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    fieldset {
+        /*border: 2px solid var(--text);*/
+        padding: 20px;
+        max-width: 400px;
+        margin: 10px;
+        border: none;
+    }
+
+    input {
+        background: var(--bg);
+        border: none;
+        border-bottom: 2px solid var(--accent);
+        color: var(--accent);
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 1.1rem;
+        width: fit-content;
+    }
+
+    input:hover {
+        border-bottom-color: var(--text);
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    /*Hide date calendar*/
+
+    input[type='date']::-webkit-calendar-picker-indicator {
+        color-scheme: dark;
+        cursor: pointer;
+    }
+
+    .btn {
+        background: var(--bg);
+        color: var(--text);
+        border: 2px solid var(--accent);
+        width: fit-content;
+        height: fit-content;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 16pt;
+        padding: 20px;
+        cursor: pointer;
+        transition-duration: 200ms;
+    }
+
+    .btn:hover{
+        color: var(--bg);
+        background-color: var(--text);
+    }
+    .btn:active{
+        border-color: var(--bg);
+        color: var(--text);
+        background-color: var(--accent);
+    }
+
+    .button-holder{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .test-form {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .input-section {
+        margin: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+</style>
+<div class="test-form">
+    <form>
+        <fieldset>
+            <legend>Input your info:</legend>
+            <div class="input-section">
+                <label for="email">Email: </label>
+                <input type="email" id="email" placeholder="user@email.net">
+            </div>
+            <div class="input-section">
+                <label for="username">Username: </label>
+                <input type="text" id="username" placeholder="User1234">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Input some date:</legend>
+            <div class="input-section">
+                <label for="date">Your date:</label>
+                <input type="date" id="date">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Single choice:</legend>
+            <div class="input-section">
+                <label for="choiceA">Option A:</label>
+                <input name="setA" type="radio" id="choiceA">
+
+                <label for="choiceB">Option B:</label>
+                <input name="setA" type="radio" id="choiceB">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Single choice B-style:</legend>
+            <div class="input-section">
+                <label for="choiceC">Option C</label>
+                <input name="setB" type="radio" id="choiceC">
+            </div>
+            <div class="input-section">
+                <label for="choiceD">Option D</label>
+                <input name="setB" type="radio" id="choiceD">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Checkboxes:</legend>
+            <div class="input-section">
+                <label for="checkA">Check #1:</label>
+                <input type="checkbox" name="checkA" id="checkA">
+            </div>
+            <div class="input-section">
+                <label for="checkB">Check #2:</label>
+                <input type="checkbox" name="checkA" id="checkB">
+                <label for="checkC">Check #3:</label>
+                <input type="checkbox" name="checkA" id="checkC">
+            </div>
+        </fieldset>
+
+        <div class="button-holder">
+            <button class="btn" type="button">Submit form</button>
+        </div>
+
+    </form>
+</div>
+

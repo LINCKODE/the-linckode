@@ -1,0 +1,13 @@
+
+/* Import external resources such as fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap');
+
+
+/* Styling index for default tags */
+@import "default/index.css";
+
+/* Styling index for custom classes */
+@import "custom/index.css";
+
+
+

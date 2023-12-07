@@ -1,0 +1,18 @@
+a {
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: var(--accent);
+}
+
+
+
+a:hover {
+    transition-duration: 200ms;
+    color: var(--text);
+    cursor: pointer;
+
+}
+a:active {
+    color: var(--accent);
+
+}

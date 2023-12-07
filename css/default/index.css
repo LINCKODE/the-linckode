@@ -1,0 +1,78 @@
+@import "a.css";
+@import "scrollbar.css";
+
+*{
+    transition-duration: 50ms;
+}
+
+html {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1rem;
+
+    color: var(--text);
+    background-color: var(--bg);
+}
+
+body {
+    margin: 2em;
+    font-size: 1.2rem;
+}
+
+h1 {
+    display: inline;
+    user-select: none;
+}
+
+h3 {
+    user-select: none;
+}
+
+header {
+    margin-bottom: 3em;
+}
+
+hr {
+    margin-top: 1em;
+    border-width: 1px;
+    border-style: solid;
+    width: 90%;
+}
+
+nav {
+    margin-top: 30px;
+    margin-left: 10px;
+    width: 95%;
+    height: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 250px;
+
+}
+
+aside {
+
+    height: auto;
+    float: right;
+    width: 25%;
+    max-width: 300px;
+    margin-right: 20px;
+    /*border: 2px solid var(--text);
+    padding: 10px;
+    border-radius: 2px;*/
+
+}
+
+main {
+    min-height: 500px;
+    margin-left: 20px;
+
+}
+
+footer {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+
+

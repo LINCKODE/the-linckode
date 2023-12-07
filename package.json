@@ -1,0 +1,13 @@
+{
+  "name": "MyWebsite",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "run": "live-server"
+  },
+  "dependencies": {
+    "graceful-fs": "^4.2.11",
+    "live-server": "^1.2.2"
+  }
+}
