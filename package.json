@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "run": "live-server"
+    "dev": "live-server"
   },
   "dependencies": {
     "graceful-fs": "^4.2.11",
